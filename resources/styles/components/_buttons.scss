@@ -1,0 +1,95 @@
+.#{$component-prefix} {
+  &-btn {
+    $-pad: calc(var(--btn-pad-y) - (var(--btn-border-width))) calc(var(--btn-pad-x) - (var(--btn-border-width)));
+
+    display: inline-flex;
+    padding: #{$-pad};
+    border: var(--btn-border-width) solid transparent;
+    background-color: transparent;
+
+    // BUTTON TYPES
+
+    &--filled {
+      background-color: var(--main-clr, blue);
+      color: var(--support-clr, white);
+
+      &:hover {
+        background-color: var(--main-clr-hover, #0000cf);
+        color: var(--support-clr-hover, #ded5ff);
+      }
+
+      &:active,
+      &:focus,
+      &:focus-visible {
+        background-color: var(--main-clr-focus, #0000af);
+        color: var(--support-clr-focus, white);
+      }
+    }
+
+    &--outline {
+      color: var(--main-clr, blue);
+      border-color: var(--main-clr, blue);
+
+      &:hover {
+        color: var(--main-clr-hover, #0000af);
+        border-color: var(--main-clr-hover, #0000af);
+      }
+
+      &:active,
+      &:focus,
+      &:focus-visible {
+        color: var(--main-clr-focus, #0000af);
+        border-color: var(--main-clr-focus, #0000af);
+      }
+    }
+
+    // BUTTON COLORS
+
+    &--primary {
+      // MAIN COLORS
+      --main-clr: var(--btn-primary-main-clr);
+      --main-clr-hover: var(--btn-primary-main-clr-hover);
+      --main-clr-focus: var(--btn-primary-main-clr-focus);
+      // SUPPORTING COLORS
+      --support-clr: var(--btn-primary-support-clr);
+      --support-clr-hover: var(--btn-primary-support-clr-hover);
+      --support-clr-focus: var(--btn-primary-support-clr-focus);
+    }
+
+    &--warning {
+      // MAIN COLORS
+      --main-clr: var(--btn-warning-main-clr);
+      --main-clr-hover: var(--btn-warning-main-clr-hover);
+      --main-clr-focus: var(--btn-warning-main-clr-focus);
+      // SUPPORTING COLORS
+      --support-clr: var(--btn-warning-support-clr);
+      --support-clr-hover: var(--btn-warning-support-clr-hover);
+      --support-clr-focus: var(--btn-warning-support-clr-focus);
+    }
+
+    &:disabled,
+    &[data-disabled] {
+      opacity: 0.4;
+    }
+  }
+
+  &-text-link {
+    --clr: var(--link-clr);
+
+    color: var(--clr, #000) !important;
+    font-weight: 700;
+    text-decoration: underline;
+
+    &:hover {
+      --clr: var(--link-clr-hover);
+    }
+
+    &:focus {
+      --clr: var(--link-clr-focus);
+    }
+
+    &[data-disabled] {
+      opacity: 0.4;
+    }
+  }
+}

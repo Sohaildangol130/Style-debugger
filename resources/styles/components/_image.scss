@@ -1,0 +1,18 @@
+.#{$component-prefix} {
+  &-image {
+    &-img {
+      //change it to -image once compnent-prefix is changed to c
+      &--cover {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+      &--fill {
+        object-fit: fill;
+      }
+      &--contain {
+        object-fit: contain;
+      }
+    }
+  }
+}

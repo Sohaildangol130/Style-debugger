@@ -1,0 +1,35 @@
+.m-leadspace-full-bg {
+  position: relative;
+  figure,
+  video,
+  .c-image,
+  .c-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    &,
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .c-image,
+  .c-video {
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: var(--c-black-dark);
+      opacity: var(--op-60);
+      z-index: 1;
+    }
+  }
+  .c-video {
+    &-control {
+      display: none;
+    }
+  }
+}

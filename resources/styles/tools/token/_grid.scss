@@ -1,0 +1,154 @@
+@mixin system-grid-cols($grid-map: (), $rootVal: false) {
+  .#{$layout-prefix}-grid > * {
+    --col-span: #{map-get($grid-map, 'columns')};
+
+    grid-column: var(--col-start, auto) / span var(--col-span, 1);
+  }
+
+  @for $span from 1 through map-get($grid-map, 'columns') {
+    .#{$layout-prefix}-col-span-#{$span} {
+      --col-span: #{$span};
+    }
+    .#{$layout-prefix}-col-start-#{$span} {
+      --col-start: #{$span};
+    }
+  }
+
+  @each $size, $val in $t-breakpoints {
+    @for $span from 1 through map-get($grid-map, 'columns') {
+      .#{$layout-prefix}-col-span-#{$size}-#{$span} {
+        @include breakpoint-up($size) {
+          --col-span: #{$span};
+        }
+      }
+      .#{$layout-prefix}-col-start-#{$size}-#{$span} {
+        @include breakpoint-up($size) {
+          --col-start: #{$span};
+        }
+      }
+    }
+  }
+
+  @if $rootVal {
+    :root {
+      @each $grid-map-name, $grid-map-val in $grid-map {
+        --#{$grid-map-name}: #{$grid-map-val};
+      }
+    }
+  }
+}
+
+@mixin system-flex-cols($grid-map: ()) {
+  $-columns: map-get(
+    $map: $grid-map,
+    $key: 'columns',
+  );
+  $-gutters: map-get(
+    $map: $grid-map,
+    $key: 'gutter',
+  );
+
+  .#{$layout-prefix}-row {
+    margin-inline: calc(-1 * var(--gutter) / 2);
+    @each $-size, $-val in $-gutters {
+      @include breakpoint-up($-size) {
+        --gutter: #{$-val};
+      }
+    }
+
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: var(--gutter);
+
+    > * {
+      --m-width: var(--col-size, 100%);
+
+      max-width: var(--m-width);
+      flex-basis: 100%;
+      flex-grow: 1;
+      padding-inline: calc(var(--gutter) / 2);
+    }
+  }
+
+  // .#{$layout-prefix}-container > .#{$layout-prefix}-row {
+  //   margin-inline: calc(-1 * var(--gutter) / 2);
+  // }
+
+  .#{$layout-prefix}-col {
+    @for $i from 0 through $-columns {
+      @if $i != 0 {
+        &-#{$i} {
+          --col-size: calc(#{$i}/#{$-columns} * 100%);
+        }
+      }
+      &-offset-#{$i} {
+        margin-left: calc(#{$i}/#{$-columns} * 100%);
+      }
+    }
+
+    @each $-size, $-val in $t-breakpoints {
+      @for $i from 0 through $-columns {
+        @include breakpoint-up($-size) {
+          @if $i != 0 {
+            &-#{$-size}-#{$i} {
+              --col-size: calc(#{$i}/#{$-columns} * 100%);
+            }
+          }
+          &-offset-#{$-size}-#{$i} {
+            margin-left: calc(#{$i}/#{$-columns} * 100%);
+          }
+        }
+      }
+    }
+  }
+}
+
+// FLEX GRID CODE
+// <div class="l-container">
+//   <div class="l-row">
+//       <div class="l-col-lg-1">
+//           <div class="u-p-4 u-bg-black-neutral"></div>
+//       </div>
+//       <div class="l-col-lg-1">
+//           <div class="u-p-4 u-bg-black-neutral"></div>
+//       </div>
+//       <div class="l-col-lg-1">
+//           <div class="u-p-4 u-bg-black-neutral"></div>
+//       </div>
+//       <div class="l-col-lg-1">
+//           <div class="u-p-4 u-bg-black-neutral"></div>
+//       </div>
+//       <div class="l-col-lg-1">
+//           <div class="u-p-4 u-bg-black-neutral"></div>
+//       </div>
+//       <div class="l-col-lg-1">
+//           <div class="u-p-4 u-bg-black-neutral"></div>
+//       </div>
+//       <div class="l-col-lg-1">
+//           <div class="u-p-4 u-bg-black-neutral"></div>
+//       </div>
+//       <div class="l-col-lg-1">
+//           <div class="u-p-4 u-bg-black-neutral"></div>
+//       </div>
+//       <div class="l-col-lg-1">
+//           <div class="u-p-4 u-bg-black-neutral"></div>
+//       </div>
+//       <div class="l-col-lg-1">
+//           <div class="u-p-4 u-bg-black-neutral"></div>
+//       </div>
+//       <div class="l-col-lg-1">
+//           <div class="u-p-4 u-bg-black-neutral"></div>
+//       </div>
+//       <div class="l-col-lg-1">
+//           <div class="u-p-4 u-bg-black-neutral"></div>
+//       </div>
+//   </div>
+//   <div class="l-row u-mt-4">
+//       <div class="l-col-lg-10">
+//           <div class="u-p-4 u-bg-black-neutral"></div>
+//       </div>
+//       <div class="l-col-lg-2">
+//           <div class="u-p-4 u-bg-black-neutral"></div>
+//       </div>
+//   </div>
+// </div>

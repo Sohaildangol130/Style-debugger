@@ -1,0 +1,13 @@
+.SettingsTabPaneWidgetType-tab-mid {
+  font-family: Arial;
+  font-family: arial;
+  background-color: #da9393;
+  background-image: URL(Warning_Close.png);
+}
+
+@media screen and (max-device-width: 769px) {
+  .SettingsTabPaneWidgetType-tab-mid {
+    font-family: arial;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#2e62a8, endColorstr=#123363);
+  }
+}

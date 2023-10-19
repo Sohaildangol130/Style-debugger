@@ -1,0 +1,41 @@
+.c-accordion {
+  $-self: &;
+  &__item:not(:first-child) {
+    #{$-self}__button {
+      border-top: 1px solid var(--c-black-neutral);
+    }
+  }
+  &__button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 0;
+    .icon-add {
+      transition: 0.3s all ease-in-out;
+      transform: rotate(45deg);
+    }
+    &.collapsed {
+      .icon-add {
+        transform: rotate(0);
+      }
+    }
+  }
+  &__button,
+  &__content {
+    background-color: var(--c-white);
+  }
+}
+
+// MOVE TO COLLAPSE FILE
+.collapse {
+  &:not(.show) {
+    display: none;
+  }
+}
+
+.collapsing {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s ease;
+}

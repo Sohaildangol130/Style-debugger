@@ -1,0 +1,10 @@
+.#{$utility-prefix} {
+  &-list-style-none {
+    padding-inline-start: 0;
+    list-style: none;
+
+    > li {
+      margin: 0;
+    }
+  }
+}

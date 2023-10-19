@@ -1,0 +1,102 @@
+{
+  "app": {
+    "js": [
+      "js/runtime.js",
+      "js/259.js",
+      "js/592.js",
+      "js/989.js",
+      "js/app.js"
+    ],
+    "css": [
+      "css/app.css"
+    ],
+    "dependencies": []
+  },
+  "editor": {
+    "js": [
+      "js/runtime.js",
+      "js/259.js",
+      "js/989.js",
+      "js/editor.js"
+    ],
+    "css": [
+      "css/editor.css"
+    ],
+    "dependencies": [
+      "wp-blocks"
+    ]
+  },
+  "accordion": {
+    "js": [
+      "js/runtime.js",
+      "js/10.js",
+      "js/accordion.js"
+    ],
+    "css": [
+      "css/accordion.css"
+    ],
+    "dependencies": []
+  },
+  "leadspace-b": {
+    "js": [
+      "js/runtime.js",
+      "js/472.js",
+      "js/10.js",
+      "js/leadspace-b.js"
+    ],
+    "css": [
+      "css/472.css",
+      "css/leadspace-b.css"
+    ],
+    "dependencies": []
+  },
+  "leadspace": {
+    "js": [
+      "js/runtime.js",
+      "js/152.js",
+      "js/472.js",
+      "js/leadspace.js"
+    ],
+    "css": [
+      "css/472.css"
+    ],
+    "dependencies": []
+  },
+  "m-headline": {
+    "js": [
+      "js/runtime.js",
+      "js/152.js",
+      "js/472.js",
+      "js/m-headline.js"
+    ],
+    "css": [
+      "css/472.css"
+    ],
+    "dependencies": []
+  },
+  "stylesheet-classic": {
+    "js": [
+      "js/runtime.js",
+      "js/152.js",
+      "js/10.js",
+      "js/972.js",
+      "js/stylesheet-classic.js"
+    ],
+    "css": [
+      "css/972.css"
+    ],
+    "dependencies": []
+  },
+  "stylesheet": {
+    "js": [
+      "js/runtime.js",
+      "js/152.js",
+      "js/972.js",
+      "js/stylesheet.js"
+    ],
+    "css": [
+      "css/972.css"
+    ],
+    "dependencies": []
+  }
+}
