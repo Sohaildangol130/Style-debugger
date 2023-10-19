@@ -4,6 +4,7 @@ import './utilities/video.js';
 import './utilities/vimeoVideo.js';
 import 'bootstrap/js/src/collapse.js';
 import 'bootstrap/js/src/tab.js';
+import { cssDebugger } from './debugger/css-debugger.js';
 // import 'bootstrap/js/src/offcanvas.js'
 
 /**
@@ -11,6 +12,7 @@ import 'bootstrap/js/src/tab.js';
  */
 domReady(async () => {
   lazyLoad();
+  cssDebugger();
 });
 
 /**

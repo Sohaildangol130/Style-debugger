@@ -1,1 +1,1 @@
-"use strict";(self.webpackChunk_roots_bud_sage_sage=self.webpackChunk_roots_bud_sage_sage||[]).push([[472],{"./styles/modules/leadspace.scss":()=>{}}]);
+"use strict";(self.webpackChunk_roots_bud_sage_sage=self.webpackChunk_roots_bud_sage_sage||[]).push([[472],{"./scripts/modules/banner.js":(s,e,a)=>{a.r(e),console.log("banner")}}]);
